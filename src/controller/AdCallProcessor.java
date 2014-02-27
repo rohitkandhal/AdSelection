@@ -1,7 +1,9 @@
-package manager;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import model.PlacementAdMapping;
 
 public class AdCallProcessor {
 

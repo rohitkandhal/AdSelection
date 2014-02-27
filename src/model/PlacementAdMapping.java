@@ -1,4 +1,4 @@
-package manager;
+package model;
 
 /**
  * Maps an ad to a placement
