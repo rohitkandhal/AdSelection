@@ -69,7 +69,7 @@ public class AdCallProcessor {
 		// In a "real" implementation, this info would probably be read from a
 		// DB...
 		//
-		// In this exercise, overrided this method for testing
+		// In this exercise, overrided in testAdSelector class for testing
 		return new ArrayList<PlacementAdMapping>();
 	}
 
