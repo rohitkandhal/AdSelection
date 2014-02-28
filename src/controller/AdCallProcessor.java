@@ -23,14 +23,13 @@ public class AdCallProcessor {
 
 	/**
 	 * Choose one of the ads ( based on relative weight )
-	 * 
-	 * @param ads
-	 *            list of ads to choose from
+	 * @param ads list of ads to choose from
 	 * @return the chosen ad
 	 */
 	public PlacementAdMapping chooseAd(Collection<PlacementAdMapping> ads) {
 
-		// Approach: 1. Calculate Sum of weight of all adds
+		// Approach: 
+		// 1. Calculate Sum of weight of all adds
 		// 2. Generate random number between 0 - total sum
 		// 3. Pick add which lies within that add range.
 
@@ -71,9 +70,7 @@ public class AdCallProcessor {
 		// In a "real" implementation, this info would probably be read from a
 		// DB...
 		//
-		// For this exercise, feel free to override this for the purpose of
-		// testing
-		//
+		// In this exercise, overrided this method for testing
 		return new ArrayList<PlacementAdMapping>();
 	}
 
