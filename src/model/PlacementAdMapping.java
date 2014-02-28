@@ -23,11 +23,11 @@ public class PlacementAdMapping {
 		this.placementId = placementId;
 	}
 
-	public int getCreativeId() {
+	public int getAdId() {
 		return adId;
 	}
 
-	public void setCreativeId(int adId) {
+	public void setAdId(int adId) {
 		this.adId = adId;
 	}
 

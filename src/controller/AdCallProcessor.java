@@ -8,7 +8,7 @@ import model.PlacementAdMapping;
 
 public class AdCallProcessor {
 
-	// Use seed to generate same type of random number
+	// Use seed to generate same series of random number
 	Random randomGenerator = new Random(31);	
 	
 	// hypothetical high-level ad call logic...
@@ -17,7 +17,7 @@ public class AdCallProcessor {
 		Collection<PlacementAdMapping> eligibleAds = getAdsForPlacement(placementId);
 		// choose one of the ads based on relative weight
 		PlacementAdMapping chosenAd = chooseAd(eligibleAds);
-		// ... render the ad
+		// render the ad
 		System.out.println(chosenAd);
 	}
 
@@ -60,8 +60,7 @@ public class AdCallProcessor {
 	}
 
 	/**
-	 * returns the ads mapped to a given placement
-	 * 
+	 * returns ads mapped to a given placement
 	 * @param placementId
 	 * @return collection of PlacementAd objects mapped to placement
 	 */

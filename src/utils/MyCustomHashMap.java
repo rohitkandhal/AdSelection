@@ -10,10 +10,13 @@ import model.PlacementAdMapping;
  * Key: Placement_id
  * Values: ArrayList<PlacementAdMapping>
  */
-public class MyCustomHashMap extends HashMap<Integer, ArrayList<PlacementAdMapping>> {
+public class MyCustomHashMap extends
+		HashMap<Integer, ArrayList<PlacementAdMapping>> {
 
 	/**
-	 * 
+	 * SerialVersionUID is a unique identifier for each class, JVM uses it to
+	 * compare the versions of the class ensuring that the same class was used
+	 * during Serialization and Deserialization
 	 */
 	private static final long serialVersionUID = 1L;
 

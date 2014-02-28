@@ -28,12 +28,12 @@ public class TestAdSelection extends AdCallProcessor {
 	protected Collection<PlacementAdMapping> getAdsForPlacement(int placementId) {
 		MyCustomHashMap allAdMappings = this.getAllAds();
 
-		// Get all ad mappings (as an ArrayList) associate with this placementId
+		// Get all ad mappings (as an ArrayList) associated with this placementId
 		return allAdMappings.get(placementId);
 	}
 
 	/*
-	 * / Create test ad mappings which will be used by AdCallProcessor
+	 * Seed test data: Ads and their placement mapping
 	 */
 	private MyCustomHashMap getAllAds() {
 
@@ -76,29 +76,30 @@ public class TestAdSelection extends AdCallProcessor {
 		int expectedAdId = 100;
 		int expectedAd100RenderCount = 50;
 
-		// Step 1
+		// Step 1 Get all eligible ads
 		Collection<PlacementAdMapping> eligibleAds = this
 				.getAdsForPlacement(placementId);
 
 		// Store Ad Id and Count of number of times it is rendered
 		HashMap<Integer, Integer> adCallCount = new HashMap<>();
 
+		// Step 2: Call choose ad 50 times and store the chosen ads' id
 		while (count-- > 0) {
 			selectedAd = adCallProcessor.chooseAd(eligibleAds);
 
 			// CreativeId ==> Ad Id
-			if (!adCallCount.containsKey(selectedAd.getCreativeId())) {
+			if (!adCallCount.containsKey(selectedAd.getAdId())) {
 				// Ad new ad to adCallCount collection and initialize count to 0
-				adCallCount.put(selectedAd.getCreativeId(), 0);
+				adCallCount.put(selectedAd.getAdId(), 0);
 			}
 
-			int oldRenderCount = adCallCount.get(selectedAd.getCreativeId());
+			int oldRenderCount = adCallCount.get(selectedAd.getAdId());
 
 			// Increment count by one
 			oldRenderCount++;
 
 			// Update Render Count in collection
-			adCallCount.put(selectedAd.getCreativeId(), oldRenderCount);
+			adCallCount.put(selectedAd.getAdId(), oldRenderCount);
 		}
 
 		// 3. Verify only add 100 is invoked and it is invoked all 50 times
@@ -110,9 +111,8 @@ public class TestAdSelection extends AdCallProcessor {
 
 		for (Integer adId : adCallCount.keySet()) {
 			assertTrue("Wrong ad rendered", adId == expectedAdId);
-			assertTrue(
-					"Ad rendered wrong number of times" + adCallCount.get(adId),
-					adCallCount.get(adId) == expectedAd100RenderCount);
+			
+			assertTrue("Ad rendered incorrect times", adCallCount.get(adId) == expectedAd100RenderCount);
 		}
 	}
 
@@ -150,16 +150,16 @@ public class TestAdSelection extends AdCallProcessor {
 			selectedAd = adCallProcessor.chooseAd(eligibleAds);
 
 			// CreativeId ==> Ad Id
-			if (!adCallCount.containsKey(selectedAd.getCreativeId())) {
+			if (!adCallCount.containsKey(selectedAd.getAdId())) {
 				// Ad new ad to adCallCount collection and initialize count to 0
-				adCallCount.put(selectedAd.getCreativeId(), 0);
+				adCallCount.put(selectedAd.getAdId(), 0);
 			}
 
-			int oldRenderCount = adCallCount.get(selectedAd.getCreativeId());
+			int oldRenderCount = adCallCount.get(selectedAd.getAdId());
 
 			oldRenderCount++;
 
-			adCallCount.put(selectedAd.getCreativeId(), oldRenderCount);
+			adCallCount.put(selectedAd.getAdId(), oldRenderCount);
 		}
 
 		// Step 3: Verify
