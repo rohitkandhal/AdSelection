@@ -2,9 +2,9 @@ Ad Selector
 ===========
 
 #### Given
-* We have different types of ad, each having _unique id_ (ad_id)
-* Depending on shape and size of an ad placeholder, we have different _placement id_ 
-* In this hypothetical ad selector algorithm, we are given a mapping of _placement id, ad id, weight_
+* Different types of ad with a _unique id_ (ad_id)
+* Different types of ad placeholders depending on its shape and size, each having unique _placement id_ 
+* A mapping of _placement id, ad id, weight_ where weight represents the priority of that particular ad for corresponding placeholder.
 
 ```
 placement_id | ad_id | weight
