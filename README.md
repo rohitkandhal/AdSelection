@@ -18,8 +18,8 @@ placement_id | ad_id | weight
 
 #### Ad Selection Algorithm
 AdCallProcessor implements the high level logic of processing each request:  
-1. Look up all of the eligible ads, mapped to the placement_id ( `getAdsForPlacement()` )  
-2. Choose an ad based on relative weight ( `chooseAd()` )
+1. Look up all of the eligible ads, mapped to the placement_id ( [getAdsForPlacement()](https://github.com/rohitkandhal/AdSelection/blob/master/src/controller/AdCallProcessor.java#L67) )  
+2. Choose an ad based on relative weight ( [chooseAd()](https://github.com/rohitkandhal/AdSelection/blob/master/src/controller/AdCallProcessor.java#L29) )
 
 #### Use Cases 
 1. If the ad call is for p=1, then ad 100 is always shown.
